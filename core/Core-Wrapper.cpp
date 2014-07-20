@@ -73,6 +73,11 @@ bool poll_event(gtorrent_torrent *t, gtorrent_event *e)
 	return reinterpret_cast<Torrent*>(t)->pollEvent(*event);
 }
 
+bool is_paused(gtorrent_torrent *t)
+{
+	return reinterpret_cast<Torrent*>(t)->isPaused();
+}
+
 int64_t get_age(gtorrent_torrent *t)
 {
 	return reinterpret_cast<Torrent*>(t)->getAge();
@@ -135,6 +140,26 @@ int64_t get_total_downloaded(gtorrent_torrent *t)
 	return reinterpret_cast<Torrent*>(t)->getTotalDownloaded();
 }
 
+int64_t get_size(gtorrent_torrent *t)
+{
+	return reinterpret_cast<Torrent*>(t)->getSize();
+}
+
+int64_t get_wanted(gtorrent_torrent *t)
+{
+	return reinterpret_cast<Torrent*>(t)->getWanted();
+}
+
+int64_t get_torrent_size(gtorrent_torrent *t)
+{
+	return reinterpret_cast<Torrent*>(t)->getTorrentSize();
+}
+
+int64_t get_time_remaining(gtorrent_torrent *t)
+{
+	return reinterpret_cast<Torrent*>(t)->getTimeRemaining();
+}
+
 float get_total_ratio(gtorrent_torrent *t)
 {
 	return reinterpret_cast<Torrent*>(t)->getTotalRatio();
@@ -143,6 +168,11 @@ float get_total_ratio(gtorrent_torrent *t)
 char* get_path(gtorrent_torrent *t)
 {
 	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getPath().c_str());
+}
+
+char* get_current_tracker_url(gtorrent_torrent *t)
+{
+	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getCurrentTrackerURL().c_str());
 }
 
 char* get_text_age(gtorrent_torrent *t)
@@ -175,15 +205,50 @@ char* get_text_total_downloaded(gtorrent_torrent *t)
 	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getTextTotalDownloaded().c_str());
 }
 
+char* get_text_size(gtorrent_torrent *t)
+{
+	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getTextSize().c_str());
+}
+
+char* get_text_remaining(gtorrent_torrent *t)
+{
+	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getTextRemaining().c_str());
+}
+
 char* get_text_total_ratio(gtorrent_torrent *t)
 {
 	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getTextTotalRatio().c_str());
+}
+
+char* get_text_time_remaining(gtorrent_torrent *t)
+{
+	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getTextTimeRemaining().c_str());
 }
 
 void set_save_path(gtorrent_torrent *t, char *path)
 {
 	string savepath(path);
 	reinterpret_cast<Torrent*>(t)->setSavePath(savepath);
+}
+
+void force_recheck(gtorrent_torrent *t)
+{
+	reinterpret_cast<Torrent*>(t)->torrentForceRecheck();
+}
+
+void set_paused(gtorrent_torrent *t, bool paused)
+{
+	reinterpret_cast<Torrent*>(t)->setPaused(paused);
+}
+
+void t_resume(gtorrent_torrent *t)
+{
+	reinterpret_cast<Torrent*>(t)->resume();
+}
+
+void t_pause(gtorrent_torrent *t)
+{
+	reinterpret_cast<Torrent*>(t)->pause();
 }
 
 } // extern "C"
