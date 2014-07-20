@@ -1,0 +1,3 @@
+[submodule "gtorrent"]
+	path = gtorrent
+	url = https://github.com/gtorrent/gtorrent
