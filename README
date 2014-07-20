@@ -1,0 +1,7 @@
+This is a wrapper that allows non-harmful C code to use the harmful C++ code that gtorrent's core uses.
+This is ONLY the core, not the GUI.
+
+The C header file to include is "core/gtorrent-core.h".
+
+gtorrent is under heavy development and is very likely to change and break this wrapper.
+Also, at some point gtorrent is going to fully separate it's core from it's GUI, and this code will need to be changed to that.
