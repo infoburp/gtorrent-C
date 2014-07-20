@@ -5,3 +5,7 @@ The C header file to include is "core/gtorrent-core.h".
 
 gtorrent is under heavy development and is very likely to change and break this wrapper.
 Also, at some point gtorrent is going to fully separate it's core from it's GUI, and this code will need to be changed to that.
+
+Compile with "make test"
+
+I honestly have no idea how the memory management works when it's done like this.
