@@ -81,7 +81,7 @@ char*    get_text_time_remaining   (gt_torrent *t);
 void     set_save_path             (gt_torrent *t, char *path);
 /*void     force_recheck             (gt_torrent *t);*/
 void     set_paused                (gt_torrent *t, bool paused);
-/* Conflicts with existing Unix functions, so 't_' is appended */
+/* Conflicts with existing Unix functions, so 't_' is prepended */
 void     t_resume                  (gt_torrent *t);
 void     t_pause                   (gt_torrent *t);
 
