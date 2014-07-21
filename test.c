@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
 			return 1;
 	}
 
-	gtorrent_core *g = core_create();
+	gt_core *g = core_create();
 	printf("Core created! Current location is: %p\n", g);
 
-	gtorrent_torrent *t = add_torrent(g, argv[1]);
+	gt_torrent *t = add_torrent(g, argv[1]);
 
 	if (!t) {
 		printf("Invalid Torrent!\n");

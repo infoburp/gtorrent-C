@@ -6,37 +6,37 @@
 
 /*****************************************************************************/
 /* gt::Core object */
-struct gtorrent_core;
-typedef struct gtorrent_core gtorrent_core;
+struct gt_core;
+typedef struct gt_core gt_core;
 
 /* gtorrent core functions */
-gtorrent_core* core_create();
+gt_core* core_create();
 
-void        core_shutdown          (gtorrent_core *g);
-void        update                 (gtorrent_core *g);
+void        core_shutdown          (gt_core *g);
+void        update                 (gt_core *g);
 
-const char* get_default_save_path  (gtorrent_core *g);
-bool        is_magnet_link         (gtorrent_core *g, char *link);
-bool        is_running             (gtorrent_core *g);
+const char* get_default_save_path  (gt_core *g);
+bool        is_magnet_link         (gt_core *g, char *link);
+bool        is_running             (gt_core *g);
 
 /* Non-library core functions */
-int32_t     get_number_torrents    (gtorrent_core *g);
+int32_t     get_number_torrents    (gt_core *g);
 
 /*****************************************************************************/
 /* gt::Event object */
-struct gtorrent_event;
-typedef struct gtorrent_event gtorrent_event;
+struct gt_event;
+typedef struct gt_event gt_event;
 
 /* NOTE: Events aren't actually used for anything at the moment */
 
 /*****************************************************************************/
 /* gt::Torrent object */
-struct gtorrent_torrent;
-typedef struct gtorrent_torrent gtorrent_torrent;
+struct gt_torrent;
+typedef struct gt_torrent gt_torrent;
 
 /* get_torrents result must be freed manually */
-gtorrent_torrent** get_torrents    (gtorrent_core *g);
-gtorrent_torrent*  add_torrent     (gtorrent_core *g, char *path);
+gt_torrent** get_torrents    (gt_core *g);
+gt_torrent*  add_torrent     (gt_core *g, char *path);
 
 /* enum returned by get_state */
 enum {
@@ -45,45 +45,45 @@ enum {
 	TORRENT_STATE_DOWNLOADING
 };
 
-bool     poll_event                (gtorrent_torrent *t, gtorrent_event *e);
-bool     is_paused                 (gtorrent_torrent *t);
+bool     poll_event                (gt_torrent *t, gt_event *e);
+bool     is_paused                 (gt_torrent *t);
 
-int64_t  get_active_time           (gtorrent_torrent *t);
-int      get_state                 (gtorrent_torrent *t);
-float    get_total_progress        (gtorrent_torrent *t);
-uint32_t get_upload_rate           (gtorrent_torrent *t);
-uint32_t get_download_rate         (gtorrent_torrent *t);
-uint32_t get_ppm_progress          (gtorrent_torrent *t);
-uint32_t get_total_seeders         (gtorrent_torrent *t);
-uint32_t get_total_peers           (gtorrent_torrent *t);
-uint32_t get_total_leechers        (gtorrent_torrent *t);
-int64_t  get_total_uploaded        (gtorrent_torrent *t);
-int64_t  get_total_downloaded      (gtorrent_torrent *t);
-int64_t  get_size                  (gtorrent_torrent *t);
-int64_t  get_wanted                (gtorrent_torrent *t);
-int64_t  get_torrent_size          (gtorrent_torrent *t);
-int64_t  get_time_remaining        (gtorrent_torrent *t);
-float    get_total_ratio           (gtorrent_torrent *t);
+int64_t  get_active_time           (gt_torrent *t);
+int      get_state                 (gt_torrent *t);
+float    get_total_progress        (gt_torrent *t);
+uint32_t get_upload_rate           (gt_torrent *t);
+uint32_t get_download_rate         (gt_torrent *t);
+uint32_t get_ppm_progress          (gt_torrent *t);
+uint32_t get_total_seeders         (gt_torrent *t);
+uint32_t get_total_peers           (gt_torrent *t);
+uint32_t get_total_leechers        (gt_torrent *t);
+int64_t  get_total_uploaded        (gt_torrent *t);
+int64_t  get_total_downloaded      (gt_torrent *t);
+int64_t  get_size                  (gt_torrent *t);
+int64_t  get_wanted                (gt_torrent *t);
+int64_t  get_torrent_size          (gt_torrent *t);
+int64_t  get_time_remaining        (gt_torrent *t);
+float    get_total_ratio           (gt_torrent *t);
 
-char*    get_path                  (gtorrent_torrent *t);
-char*    get_current_tracker_url   (gtorrent_torrent *t);
-char*    get_text_active_time      (gtorrent_torrent *t);
-char*    get_text_state            (gtorrent_torrent *t);
-char*    get_text_upload_rate      (gtorrent_torrent *t);
-char*    get_text_download_rate    (gtorrent_torrent *t);
-char*    get_text_total_uploaded   (gtorrent_torrent *t);
-char*    get_text_total_downloaded (gtorrent_torrent *t);
-char*    get_text_size             (gtorrent_torrent *t);
-char*    get_text_remaining        (gtorrent_torrent *t);
-char*    get_text_total_ratio      (gtorrent_torrent *t);
-char*    get_text_time_remaining   (gtorrent_torrent *t);
+char*    get_path                  (gt_torrent *t);
+char*    get_current_tracker_url   (gt_torrent *t);
+char*    get_text_active_time      (gt_torrent *t);
+char*    get_text_state            (gt_torrent *t);
+char*    get_text_upload_rate      (gt_torrent *t);
+char*    get_text_download_rate    (gt_torrent *t);
+char*    get_text_total_uploaded   (gt_torrent *t);
+char*    get_text_total_downloaded (gt_torrent *t);
+char*    get_text_size             (gt_torrent *t);
+char*    get_text_remaining        (gt_torrent *t);
+char*    get_text_total_ratio      (gt_torrent *t);
+char*    get_text_time_remaining   (gt_torrent *t);
 
-void     set_save_path             (gtorrent_torrent *t, char *path);
-/*void     force_recheck             (gtorrent_torrent *t);*/
-void     set_paused                (gtorrent_torrent *t, bool paused);
+void     set_save_path             (gt_torrent *t, char *path);
+/*void     force_recheck             (gt_torrent *t);*/
+void     set_paused                (gt_torrent *t, bool paused);
 /* Conflicts with existing Unix functions, so 't_' is appended */
-void     t_resume                  (gtorrent_torrent *t);
-void     t_pause                   (gtorrent_torrent *t);
+void     t_resume                  (gt_torrent *t);
+void     t_pause                   (gt_torrent *t);
 
 /* NOT IMPLEMENTED */
 /*libtorrent::add_torrent_params getTorrentParams();*/
