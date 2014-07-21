@@ -1,4 +1,5 @@
 gtorrent-c.a
 test
+gui/gui
 *.swp
 *.o
