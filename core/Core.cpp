@@ -1,1 +1,1 @@
-../gtorrent/src/core/Core.cpp
+../gtorrent-core/src/Core.cpp

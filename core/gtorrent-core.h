@@ -48,7 +48,7 @@ enum {
 bool     poll_event                (gtorrent_torrent *t, gtorrent_event *e);
 bool     is_paused                 (gtorrent_torrent *t);
 
-int64_t  get_age                   (gtorrent_torrent *t);
+int64_t  get_active_time           (gtorrent_torrent *t);
 int      get_state                 (gtorrent_torrent *t);
 float    get_total_progress        (gtorrent_torrent *t);
 uint32_t get_upload_rate           (gtorrent_torrent *t);
@@ -67,7 +67,7 @@ float    get_total_ratio           (gtorrent_torrent *t);
 
 char*    get_path                  (gtorrent_torrent *t);
 char*    get_current_tracker_url   (gtorrent_torrent *t);
-char*    get_text_age              (gtorrent_torrent *t);
+char*    get_text_active_time      (gtorrent_torrent *t);
 char*    get_text_state            (gtorrent_torrent *t);
 char*    get_text_upload_rate      (gtorrent_torrent *t);
 char*    get_text_download_rate    (gtorrent_torrent *t);
@@ -79,7 +79,7 @@ char*    get_text_total_ratio      (gtorrent_torrent *t);
 char*    get_text_time_remaining   (gtorrent_torrent *t);
 
 void     set_save_path             (gtorrent_torrent *t, char *path);
-void     force_recheck             (gtorrent_torrent *t);
+/*void     force_recheck             (gtorrent_torrent *t);*/
 void     set_paused                (gtorrent_torrent *t, bool paused);
 /* Conflicts with existing Unix functions, so 't_' is appended */
 void     t_resume                  (gtorrent_torrent *t);

@@ -1,1 +1,1 @@
-../gtorrent/src/core/Event.hpp
+../gtorrent-core/include/gtorrent/Event.hpp

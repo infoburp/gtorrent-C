@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -g -c -Wall -include all.h
+CXXFLAGS = -std=c++11 -g -c -Wall
 
 SRC = Core.cpp Core-Wrapper.cpp Log.cpp Torrent.cpp
 OBJ = $(SRC:.cpp=.o)

@@ -1,1 +1,1 @@
-../gtorrent/src/core/Log.hpp
+../gtorrent-core/include/gtorrent/Log.hpp

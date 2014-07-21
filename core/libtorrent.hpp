@@ -1,1 +1,1 @@
-../gtorrent/src/core/libtorrent.hpp
+../gtorrent-core/include/gtorrent/libtorrent.hpp

@@ -1,3 +1,3 @@
-[submodule "gtorrent"]
-	path = gtorrent
-	url = https://github.com/gtorrent/gtorrent
+[submodule "gtorrent-core"]
+	path = gtorrent-core
+	url = https://github.com/gtorrent/gtorrent-core

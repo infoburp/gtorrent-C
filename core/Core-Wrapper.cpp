@@ -78,9 +78,9 @@ bool is_paused(gtorrent_torrent *t)
 	return reinterpret_cast<Torrent*>(t)->isPaused();
 }
 
-int64_t get_age(gtorrent_torrent *t)
+int64_t get_active_time(gtorrent_torrent *t)
 {
-	return reinterpret_cast<Torrent*>(t)->getAge();
+	return reinterpret_cast<Torrent*>(t)->getActiveTime();
 }
 
 int get_state(gtorrent_torrent *t)
@@ -175,9 +175,9 @@ char* get_current_tracker_url(gtorrent_torrent *t)
 	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getCurrentTrackerURL().c_str());
 }
 
-char* get_text_age(gtorrent_torrent *t)
+char* get_text_active_time(gtorrent_torrent *t)
 {
-	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getTextAge().c_str());
+	return const_cast<char*>(reinterpret_cast<Torrent*>(t)->getTextActiveTime().c_str());
 }
 
 char* get_text_state(gtorrent_torrent *t)
@@ -231,10 +231,10 @@ void set_save_path(gtorrent_torrent *t, char *path)
 	reinterpret_cast<Torrent*>(t)->setSavePath(savepath);
 }
 
-void force_recheck(gtorrent_torrent *t)
-{
-	reinterpret_cast<Torrent*>(t)->torrentForceRecheck();
-}
+//void force_recheck(gtorrent_torrent *t)
+//{
+//	reinterpret_cast<Torrent*>(t)->torrentForceRecheck();
+//}
 
 void set_paused(gtorrent_torrent *t, bool paused)
 {
